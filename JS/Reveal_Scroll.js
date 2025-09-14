@@ -1,15 +1,21 @@
+// Seleciona TODOS os elementos com a classe 'hidden'
+const hiddenElements = document.querySelectorAll('.hidden');
 
-const elementosParaAnimar = document.querySelectorAll('.escondido');
-const observerCallback = (entries, observer) => {
-  entries.forEach(entry => {
+// Cria um observador
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    // entry.target é o elemento que o observador está vendo agora
     if (entry.isIntersecting) {
-      entry.target.classList.add('visivel');
-      observer.unobserve(entry.target); 
+      // Se ele está visível, adiciona a classe 'visible'
+      entry.target.classList.add('visible');
+    }
+    else{
+      entry.target.classList.remove('visible');
     }
   });
-};
-Intersection Observer
-const observer = new 
-elementosParaAnimar.forEach(elemento => {
-  observer.observe(elemento);
+}, {
+  threshold: 0.5 
 });
+
+// Para cada elemento na lista, comece a observá-lo
+hiddenElements.forEach((el) => observer.observe(el));

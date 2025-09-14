@@ -1,13 +1,13 @@
 
 
 let indice = 0;
-function digitar() {
+function digitar(){
     const elemento = document.getElementById('texto-digitado');
-const textoCompleto = "Hello World";
+    const textoCompleto = "Hi There!!!";
     elemento.textContent += textoCompleto[indice];
     indice++;
     if (indice < textoCompleto.length) {
-        setTimeout(digitar, 50);
+        setTimeout(digitar, 90);
     }
 }
 digitar()
