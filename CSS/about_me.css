@@ -3,3 +3,94 @@ body {
     color: honeydew;
     text-align: center;
 }
+#profile-pic {
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    margin-top: 10px;
+}
+#return {
+    background-color: black;
+    position: relative;
+    color: green;
+    padding: 10px 20px;
+    border: 1.5px solid green;
+    border-radius: 5px;
+    cursor: pointer;
+    position: fixed;
+    bottom: 20px;         
+    right: 20px;          
+    z-index: 1000; 
+}
+.div_table_container {
+    display: flex;
+    justify-content: center; 
+    gap: 20px; flex-wrap: wrap; 
+    margin-top: 20px;
+}
+#return:hover {
+    border: 1.5px solid red;
+    background-color: green;
+    color: black;
+    transition: 0.3s;
+}
+.title_table{
+    font-family: 'Arial Black', sans-serif;
+    font-size: 22px;
+    margin-bottom: 10px;
+    height: 60px;
+}
+.div_table {
+    background-color: black;
+    color: green;
+    width: 300px;
+    border: 2px solid green;
+    margin-top: 20px;
+    border-radius: 15px;
+    padding: 20px;
+    font-size: 17px;
+    text-align: center;
+    height: 370px;
+}
+.div_table td{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+.table-header {
+    border-bottom: 2px solid green;
+    padding: 10px 0;
+    font-size: 20px;
+    padding-bottom: 10px;
+    padding-top: 5px;
+}
+.language-name{
+    font-family: Impact, fantasy;
+    font-size: 25px;
+    margin-left: 10px;
+}
+.language-logo{
+    padding-top: 5px;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+
+}
+.hidden {
+    opacity: 0;
+    transition: opacity 1.25s ease-in;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media screen and (max-width: 1080px) {
+    
+    
+}
