@@ -4,9 +4,8 @@ function list(){
         "Extract data...",
         "some contents were found:",
         "   [1] About Me",
-        "   [2] Interests",
-        "   [3] Projects",
-        "   [4] Contacts",
+        "   [2] Projects",
+        "   [3] Social Midias",
     ];
 
     const listaElemento = document.getElementById('list');
@@ -61,15 +60,12 @@ window.addEventListener('DOMContentLoaded', () => {
         if (e.key === 'Enter') {
             const valor = input.value.trim();
             if (["1", "2", "3", "4"].includes(valor)) {
-                // Aqui você pode chamar a função para processar a resposta correta
                 if (valor === "1") {
-                    window.location.href = './HTML/about_me.html'; // Redireciona para about_me.html
+                    window.location.href = './HTML/about_me.html';
                 } else if (valor === "2") {
-                    window.location.href = './HTML/interests.html'; // Redireciona para interests.html
+                    window.location.href = './HTML/projects.html';
                 } else if (valor === "3") {
-                    window.location.href = './HTML/projects.html'; // Redireciona para projects.html
-                } else if (valor === "4") {
-                    window.location.href = './HTML/contacts.html'; // Redireciona para contacts.html
+                    window.location.href = 'https://t.co/LLzghNo1Vn'; 
                 }
                 input.value = "";
             } else {

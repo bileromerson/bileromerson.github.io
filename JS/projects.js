@@ -1,6 +1,5 @@
 
-
-const texto = "Welcome to About Me!";
+const texto = "Welcome to My Projects!";
 const elemento = document.getElementById('texto-digitado');
 let indice = 0;
 elemento.textContent = "";
@@ -14,15 +13,14 @@ function escrever() {
 }
 escrever();
 
-
-
-
 const hiddenElements = document.querySelectorAll('.hidden');
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
       entry.target.classList.add('visible');
+    }else{
+      entry.target.classList.remove('visible');
     }
   });
 }, {
