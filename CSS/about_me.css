@@ -7,7 +7,9 @@ body {
 #profile-pic {
     width: 170px;
     height: 170px;
+    padding: 53px 6px 54px 7px;
     border-radius: 50%;
+    border: 2px solid green;
     margin-top: 10px;
 }
 #return {
