@@ -1,0 +1,142 @@
+/* Esconde o cursor padrão em todo o corpo */
+body {
+  cursor: none !important;
+  height: 95vh; /* remover se nao for mais necessario */
+  text-align: center;
+  background: #0a0a0a;
+  color: #fff;
+}
+
+.btn {
+  cursor: none;
+  background: #1a1a1a;
+  border: 1px solid #444;
+  padding: 15px 50px;
+  border-radius: 8px;
+  color: #ffaa00;
+  font-size: 18px;
+  transition: 0.3s ease;
+  margin-bottom: 1000px;
+}
+.type {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 48px;
+  color: #00ffff;
+  margin-top: 50px;
+  margin-bottom: 0;
+}
+.hidden {
+    opacity: 0; 
+    
+    transform: translateY(50px);
+    
+}
+.visible { 
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out
+} 
+
+/* O container principal da nossa mira */
+#custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 30px; /* Tamanho da mira */
+    height: 30px;
+    pointer-events: none; /* Crucial: faz o cursor não bloquear cliques ou hovers */
+    transform: translate(-50%, -50%); /* Centraliza o cursor na ponta do mouse */
+    z-index: 9999;
+    /* Animação de rotação contínua (parada pelo JS em caso de hover) */
+    transition: transform 0.2s ease-out; /* Transição suave para o movimento do mouse (controlado por JS) */
+}
+
+/* Estilos para as 4 hastes da mira */
+.crosshair-segment {
+    position: absolute;
+    width: 10px;
+    height: 10px; /* Metade do tamanho do cursor, para parecer uma cruz */
+    transition: transform 0.3s ease-in-out; /* Transição para o efeito de "abrir" */
+}
+.crosshair-segment::after {
+    content: ''; /* OBRIGATÓRIO! Precisa ter algum conteúdo, mesmo que vazio. */
+    position: absolute;
+    
+    /* Criação do Triângulo (Técnica CSS-Triangle): */
+    width: 0;
+    height: 0;
+    border-left: 3px solid transparent; /* Lado esquerdo invisível */
+    border-right: 3px solid transparent; /* Lado direito invisível */
+    /* Cria a ponta visível na cor da mira, apontando para 'baixo' */
+    border-top: 3px solid #ffae00; 
+}
+/* Posiciona as hastes no centro */
+.top { top: 0; left: 40%; transform: translate(-50%, 0) rotate(0deg); }
+.bottom { bottom: 0; left: 60%; transform: translate(-50%, 0) rotate(180deg); }
+.left { top: 55%; left: 0; transform: translate(0, -50%) rotate(-90deg); }
+.right { top: 40%; right: 0; transform: translate(0, -50%) rotate(90deg); }
+
+/* Estilo para a bolinha central */
+.center-dot {
+    position: absolute;
+    opacity: 1;
+    top: 50%;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    background-color: #00ffff;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Keyframes para a animação de rotação (o "girando" que você pediu) */
+#custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 30px; 
+    height: 30px;
+    pointer-events: none; 
+    transform: translate(-50%, -50%); 
+    z-index: 9999;
+    /* Adicione estas linhas: */
+    --rotation: 0deg; /* Variável CSS para controlar a rotação */
+    animation: rotate 4s linear infinite;
+    transition: transform 0.2s ease-out;
+}
+
+/* Modifique o keyframes para usar a variável: */
+@keyframes rotate {
+    from {
+        transform: translate(-50%, -50%) rotate(var(--rotation));
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(calc(360deg + var(--rotation)));
+    }
+}
+
+
+/* Efeito de HOVER - Classe adicionada pelo JavaScript */
+.cursor-on-button {
+    animation-play-state: paused; 
+    transform: translate(-50%, -50%) rotate(0deg) !important;
+    animation: none !important; 
+}
+
+/* Abertura das hastes quando o mouse está sobre o botão */
+.cursor-on-button .top { 
+    /* Use a variável --open-y para o afastamento vertical */
+    transform: translate(-50%, var(--open-y)) rotate(0deg); 
+}
+.cursor-on-button .bottom { 
+    /* Use a variável --open-y, mas positiva (ou ajuste a variável para ser simétrica) */
+    transform: translate(-50%, calc(var(--open-y) * -1)) rotate(180deg); 
+}
+.cursor-on-button .left { 
+    /* Use a variável --open-x para o afastamento horizontal */
+    transform: translate(var(--open-x), -50%) rotate(-90deg); 
+}
+.cursor-on-button .right { 
+    /* Use a variável --open-x, mas positiva */
+    transform: translate(calc(var(--open-x) * -1), -50%) rotate(90deg); 
+}
