@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const elementos = document.querySelectorAll('.hidden'); 
-
+    
     const callback = (entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const options = {
         root: null, 
         rootMargin: '0px', 
-        threshold: 0.2 
+        threshold: 0.45 
     };
 
     const observer = new IntersectionObserver(callback, options);

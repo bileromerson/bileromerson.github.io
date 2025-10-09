@@ -24,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
             centerDot.style.opacity = 1;
             customCursor.style.left = e.clientX + 'px';
             customCursor.style.top = e.clientY + 'px';
-            
             if (customCursor.style.animationName !== 'rotate') {
                  customCursor.style.animationName = 'rotate'; 
                  requestAnimationFrame(animateRotation);
@@ -45,10 +44,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const buttonRect = e.currentTarget.getBoundingClientRect();
             
             // Posição central horizontal (Left + metade da Largura)
-            const centerX = buttonRect.left + buttonRect.width / 2;
+            const centerX = buttonRect.left + buttonRect.width / 2 ;
             // Posição central vertical (Top + metade da Altura)
             const centerY = buttonRect.top + buttonRect.height / 2;
-            
+
             // 3. FORÇAR O CURSOR PERSONALIZADO para o centro do botão
             customCursor.style.left = centerX + 'px';
             customCursor.style.top = centerY + 'px';

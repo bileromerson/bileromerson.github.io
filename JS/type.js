@@ -13,13 +13,13 @@ function typeWriter(element, text, index, speed) {
 // ----------------------------------------------------
 
 document.addEventListener('DOMContentLoaded', () => {
-    const typingSpeed = 70;
+    const typingSpeed = 80;
     
     // 1. Encontra todos os elementos
     const elements = document.querySelectorAll('.type');
     
     // Armazenar o tempo de digitação total de todos os elementos para criar um atraso sequencial
-    let totalDelay = 0;
+    let totalDelay = 10;
 
     // 2. Cria o Intersection Observer
     const observer = new IntersectionObserver((entries, observer) => {
@@ -49,11 +49,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, {
         rootMargin: '0px', // O padrão é zero (checa a borda da tela)
-        threshold: 0.1   // Começa a digitar quando 10% do elemento estiver visível
+        threshold: 0.5   // Começa a digitar quando 50% do elemento estiver visível
     });
 
     // 5. Manda o Observer monitorar cada parágrafo
     elements.forEach((element) => {
+        element.textContent = "";
         observer.observe(element);
     });
 });
